@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MsStore.Api.Models;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
+using System.Threading;
 
 namespace MsStore.Api.Database
 {
@@ -12,9 +13,12 @@ namespace MsStore.Api.Database
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<ProductEntity> Products { get; set; }
         public DbSet<ProductPropEntity> ProductProps { get; set; }
+        public DbSet<BasketEntity> Baskets { get; set; }
+        public DbSet<BasketProduct> BasketProducts { get; set; }
+        public DbSet<PaymentEntity> Payments { get; set; }
 
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        public override int SaveChanges()
         {
             var now = DateTime.Now;
             foreach (var entry in ChangeTracker.Entries<EntityBase>())
@@ -32,7 +36,9 @@ namespace MsStore.Api.Database
                         break;
                 }
             }
-            return base.SaveChangesAsync(cancellationToken);
+            return base.SaveChanges();
         }
+
+       
     }
 }

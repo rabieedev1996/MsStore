@@ -10,7 +10,6 @@ namespace MsStore.Api.Models
         public string Description { set; get; }
         //public string PropertiesJson { set; get; }
         public List<ProductPropEntity> ProductProps { set; get; }
-
     }
 
 

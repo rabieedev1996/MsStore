@@ -26,7 +26,7 @@ builder.Services.AddDbContext<SQLContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("SQLConnection")
     ));
-
+builder.Services.AddControllers().AddJsonOptions(op => op.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
 
 var app = builder.Build();
 

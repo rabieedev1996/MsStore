@@ -13,5 +13,7 @@ namespace MsStore.Api.Models
         [MaxLength(50)]
         public string UserName { set; get; }
         public long PhoneNumber { set; get; }
+
+        public List<PaymentEntity> Payments { set; get; }
     }
 }
