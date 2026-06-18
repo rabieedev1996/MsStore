@@ -73,8 +73,14 @@ namespace MsStore.Api.Controllers
         {
             var product = _sQLContext.Products.AsNoTracking().FirstOrDefault(a => a.Id == model.Id);
 
+            //_sQLContext.Products.Update(product);
+            //_sQLContext.SaveChanges();
+            //_sQLContext.ChangeTracker.Clear();
             //_sQLContext.Entry(product).Reload();
             //var product1 = _sQLContext.Products.AsNoTracking().FirstOrDefault(a => a.Id == model.Id);
+            //_sQLContext.Products.Update(product1);
+            //_sQLContext.SaveChanges();
+            //_sQLContext.ChangeTracker.Clear();
 
             if (product == null)
             {
