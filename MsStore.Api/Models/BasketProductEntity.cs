@@ -1,6 +1,6 @@
 ﻿namespace MsStore.Api.Models
 {
-    public class BasketProduct : EntityBase
+    public class BasketProductEntity : EntityBase
     {
         public Guid ProductId { set; get; }
         public Guid BasketId { set; get; }

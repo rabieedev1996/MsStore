@@ -4,6 +4,10 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MsStore.Api.Contract.Interface;
+using MsStore.Api.Contract.Repository;
+using MsStore.Identity;
+using MsStore.Cache;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +31,15 @@ builder.Services.AddDbContext<SQLContext>(options =>
         builder.Configuration.GetConnectionString("SQLConnection")
     ));
 builder.Services.AddControllers().AddJsonOptions(op => op.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IBasketProductRepository, BasketProductRepository>();
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+builder.Services.AddScoped<IProductPropRepository, ProductPropRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<ICacheService, CacheService>();
+
 
 var app = builder.Build();
 

@@ -22,14 +22,14 @@ public class BaseRepository<T> : IBaseRepository<T> where T : EntityBase
     //    _dapperConnection = dapperContext._sqlConnection;
     //}
 
-    public BaseRepository(SQLContext dbContext )
+    public BaseRepository(SQLContext dbContext)
     {
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
     }
 
     protected IQueryable<T> GetDBSetQuery()
     {
-        return _dbContext.Set<T>().Where(a=>a.IsDeleted==false);
+        return _dbContext.Set<T>().AsNoTracking().Where(a => a.IsDeleted == false);
     }
 
     public async Task<IReadOnlyList<T>> GetAllAsync()
@@ -39,11 +39,11 @@ public class BaseRepository<T> : IBaseRepository<T> where T : EntityBase
 
     public IReadOnlyList<T> GetAll()
     {
-        return _dbContext.Set<T>().Where(a=>a.IsDeleted==false).ToList();
+        return _dbContext.Set<T>().Where(a => a.IsDeleted == false).ToList();
     }
     public virtual T GetById(object id)
     {
-        return  _dbContext.Set<T>().Find(id);
+        return _dbContext.Set<T>().Find(id);
     }
     public virtual async Task<T> GetByIdAsync(object id)
     {

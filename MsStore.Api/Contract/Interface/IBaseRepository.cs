@@ -1,5 +1,4 @@
 
-
 using MsStore.Api.Models;
 
 namespace MsStore.Api.Contract.Interface;

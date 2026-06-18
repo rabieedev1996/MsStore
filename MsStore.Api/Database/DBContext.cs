@@ -14,7 +14,7 @@ namespace MsStore.Api.Database
         public DbSet<ProductEntity> Products { get; set; }
         public DbSet<ProductPropEntity> ProductProps { get; set; }
         public DbSet<BasketEntity> Baskets { get; set; }
-        public DbSet<BasketProduct> BasketProducts { get; set; }
+        public DbSet<BasketProductEntity> BasketProducts { get; set; }
         public DbSet<PaymentEntity> Payments { get; set; }
 
 

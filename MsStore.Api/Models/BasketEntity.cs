@@ -5,6 +5,6 @@
         public decimal Amount { set; get; }
 
         public List<PaymentEntity> Payment { set; get; }
-        public List<BasketProduct> BasketProducts { set; get; } 
+        public List<BasketProductEntity> BasketProducts { set; get; } 
     }
 }
