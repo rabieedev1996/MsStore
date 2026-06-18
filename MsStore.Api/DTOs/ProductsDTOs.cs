@@ -26,4 +26,9 @@ namespace MsStore.Api.DTOs
         public string Title { set; get; }
         public string Description { set; get; }
     }
+    
+    public class DeleteProductRequest
+    {
+        public Guid Id { set; get; }
+    }
 }

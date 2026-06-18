@@ -85,5 +85,20 @@ namespace MsStore.Api.Controllers
             _sQLContext.SaveChanges();
             return Ok();
         }
+
+        [HttpPost]
+        [Route("/DeleteProduct")]
+        public IActionResult DeleteProduct([FromBody] DeleteProductRequest model)
+        {
+            var product = _sQLContext.Products.AsNoTracking().FirstOrDefault(a => a.Id == model.Id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            _sQLContext.Products.Remove(product);
+            _sQLContext.SaveChanges();
+            return Ok();
+        }
+        
     }
 }
