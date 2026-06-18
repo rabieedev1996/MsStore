@@ -61,6 +61,7 @@ namespace MsStore.Api.Controllers
                 Description = model.Description,
                 Title = model.Title,
             };
+            
             _sQLContext.Add(productEntity);
             _sQLContext.SaveChanges();  
             return Ok();
